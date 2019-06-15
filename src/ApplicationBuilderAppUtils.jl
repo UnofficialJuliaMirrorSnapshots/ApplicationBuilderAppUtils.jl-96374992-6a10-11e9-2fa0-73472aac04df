@@ -29,7 +29,9 @@ be `/path/to/MyApp/res`.
 """
 function get_bundle_resources_dir()
     # When statically compiled, PROGRAM_FILE is set by ApplicationBuilder/src/program.c
-    full_binary_name = PROGRAM_FILE
+    # Use `realpath()` to follow any potential symlinks so that we end up navigating to the
+    # true bundle resources directory.
+    full_binary_name = realpath(PROGRAM_FILE)
 
     @static if Sys.isapple()
         m = match(r".app/Contents/MacOS/[^/]+$", full_binary_name)
