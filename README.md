@@ -1,5 +1,7 @@
 # ApplicationBuilderAppUtils
 
+[![Build Status](https://travis-ci.com/NHDaly/ApplicationBuilderAppUtils.jl.svg?branch=master)](https://travis-ci.com/NHDaly/ApplicationBuilderAppUtils.jl)
+
 A small package providing utilities for applications built with
 [`ApplicationBuilder.jl`](https://github.com/NHDaly/ApplicationBuilder.jl).
 

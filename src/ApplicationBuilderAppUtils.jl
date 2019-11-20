@@ -28,6 +28,11 @@ On macOS, this will be `/path/to/MyApp.app/Contents/Resources`. On Windows/linux
 be `/path/to/MyApp/res`.
 """
 function get_bundle_resources_dir()
+    # When run on the julia REPL, PROGRAM_FILE is unset.
+    if isempty(PROGRAM_FILE)
+        return pwd()
+    end
+
     # When statically compiled, PROGRAM_FILE is set by ApplicationBuilder/src/program.c
     # Use `realpath()` to follow any potential symlinks so that we end up navigating to the
     # true bundle resources directory.

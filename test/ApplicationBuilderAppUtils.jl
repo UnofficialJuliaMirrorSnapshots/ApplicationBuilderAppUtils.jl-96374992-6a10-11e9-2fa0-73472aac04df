@@ -29,4 +29,15 @@ end
     end
 end
 
+@testset "empty program file" begin
+    @static if Sys.isapple()
+        with_tmp_PROGRAM_FILE("") do program_file
+            # Unchanged
+            @test ApplicationBuilderAppUtils.get_bundle_resources_dir() == pwd()
+        end
+    end
+end
+
+end
+
 end
